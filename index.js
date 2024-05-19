@@ -28,9 +28,23 @@ function calculateYieldLoad(yieldStress, size) {
 }
 
 function calculateElongation(ultimateLoad, yieldLoad, size) {
-    if (size === 10 || size === 8) return parseFloat(ultimateLoad) * 0.3
+    var elongation = null
 
-    return parseFloat(yieldLoad) * 0.3
+    if (size === 10 || size === 8)
+        elongation = parseFloat(ultimateLoad) * 0.3
+    else
+        elongation = parseFloat(yieldLoad) * 0.3
+
+    if (elongation >= 25.00 && elongation <= 39.00)
+        return elongation / 2
+    else if (elongation >= 40.00 && elongation <= 55.00)
+        return elongation / 3
+    else if (elongation >= 56.00 && elongation <= 70.00)
+        return elongation / 4
+    else if (elongation >= 71.00 && elongation <= 89.00)
+        return elongation / 5
+    else
+        return elongation
 }
 // -----------------------------------------
 
