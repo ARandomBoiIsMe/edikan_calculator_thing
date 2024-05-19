@@ -28,7 +28,7 @@ function calculateYieldLoad(yieldStress, size) {
 }
 
 function calculateElongation(ultimateLoad, yieldLoad, size) {
-    if (size === 10) return parseFloat(ultimateLoad) * 0.3
+    if (size === 10 || size === 8) return parseFloat(ultimateLoad) * 0.3
 
     return parseFloat(yieldLoad) * 0.3
 }
